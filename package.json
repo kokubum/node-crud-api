@@ -1,0 +1,14 @@
+{
+  "name": "crud-node-api",
+  "version": "1.0.0",
+  "description": "Basic CRUD API with node.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "author": "Erick Kokubum",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
