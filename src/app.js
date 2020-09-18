@@ -3,7 +3,6 @@
 const http = require("http");
 const userController = require("./controllers/userController");
 
-// Set the port to the server
 const port = process.env.PORT | 5000;
 
 // Mapping each route with its respective handler
