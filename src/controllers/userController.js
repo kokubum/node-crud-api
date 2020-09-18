@@ -13,7 +13,7 @@ const getUsers = async (req, res) => {
   try {
     // Reading and parsing the json to a js object
     const users = JSON.parse(await fs.readFile(db_path, "utf-8"));
-    // Sending the response to the client
+    
     sendResponse(200, { users }, res);
   } catch (err) {
     sendError(err, 400, res);
@@ -29,11 +29,10 @@ const postUser = (req, res) => {
   });
   req.on("end", async () => {
     try {
-      // Parsing the user body to an user object
       const user = JSON.parse(userBody);
       // Testing if the fields of the request are valid
       if (!validate.fields(userBody, user)) throw new Error("Invalid fields");
-      // Reading and parsing the json files
+ 
       const users = JSON.parse(await fs.readFile(db_path, "utf-8"));
       // Testing if the user are already registered
       if (validate.user(users, user.email))
@@ -52,7 +51,6 @@ const postUser = (req, res) => {
 // Handler to the route "GET api/v1/users/id"
 const getUser = async (req, res) => {
   try {
-    // Searching for the user
     const { user } = await findUser(req.user_id, db_path);
     sendResponse(200, { user }, res);
   } catch (err) {
@@ -83,7 +81,7 @@ const updateUser = (req, res) => {
   });
   req.on("end", async () => {
     try {
-      // Parsing the user body to an user object with the fields that i want to update
+      
       const userFields = JSON.parse(userBody);
       // Testing if the fields are valid to update the user
       if (!validate.update(userBody, userFields))
@@ -91,7 +89,6 @@ const updateUser = (req, res) => {
 
       // Finding and updating the user
       const { users, user } = await findUser(req.user_id, db_path);
-      // Updating the user
       updateFields(userFields, user);
 
       // Saving the new array of users
