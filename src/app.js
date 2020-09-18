@@ -17,7 +17,7 @@ const requestHandlers = {
 
 // Creating the server
 const server = http.createServer((req, res) => {
-  // Parsing the url and getting the pathname
+  
   let { pathname } = new URL(req.url, "http:127.0.0.1");
 
   // Teste if the pathname is dynamic
@@ -49,11 +49,11 @@ const server = http.createServer((req, res) => {
       })
     );
   }
-  // Execute the handler
+  
   return handler(req, res);
 });
 
-// Running the server
+
 server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
