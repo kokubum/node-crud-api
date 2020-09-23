@@ -5,10 +5,10 @@ A simple CRUD API made with pure node.js. For the responses, the [JSend](https:/
 ## Routes
 
 - GET api/v1/users 
-- GET api/v1/users/{id}
+- GET api/v1/users/:id
 - POST api/v1/users
-- PATCH api/v1/users/{id}
-- DELETE api/v1/users/{id}
+- PATCH api/v1/users/:id
+- DELETE api/v1/users/:id
 
 ## Getting Started
 
